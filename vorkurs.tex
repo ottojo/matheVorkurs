@@ -1,0 +1,228 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{enumitem}
+\usepackage{csquotes}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+\title{Mathe Vorkurs 2017}
+\author{Jonas Otto}
+\date{September 2017}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{Elementare Logik}
+  \subsection{}
+    \subsubsection{Definition}
+      Eine Aussage ist ein Satz, der wahr oder falsch sein kann. Zwei Aussagen $A,B$
+      heißen logisch äquivalent, in Zeichen $A \iff B$, falls sie den selben
+      Wahrheitswert haben.
+
+    \subsubsection{Bemerkung}
+      \begin{enumerate}[label=(\roman*)]
+        \item Es muss nicht bekannt sein, ob eine Aussage wahr oder falsch ist.
+        \item Wahre Aussagen müssen nicht \enquote{nützlich} sein und umgekehrt.
+        \item Äquivalente Aussagen müssen \enquote{nichts miteinander zu tun haben}.
+      \end{enumerate}
+
+    \subsubsection{Beispiele}
+      \begin{enumerate}[label=(\roman*)]
+        \item $A = ``\text{Es regnet}"$ (Wahr)
+        \item $B = ``x+2"$ ist keine Aussage
+        \item $C = ``2+3=5"$ (Wahr)
+        \item $D = ``\text{Jede gerade Zahl außer 2 ist die Summe von zwei
+        Prizahlen}"$ (Unbekannt)
+        \item $E = ``\pi = \frac{333}{106}"$ falsch, aber nützlich
+        \item $F = ``\text{Meine Hose ist blau}"$ und
+        $G = ``\text{Ich trinke Kaffee}"$ sind logisch äquivalent
+      \end{enumerate}
+
+    In diesem Abschnitt seien $A,B,C$ stets Aussagen.
+    \subsubsection{Definition (Junktoren und Wahrheitstabellen)}
+      \begin{enumerate}[label=(\roman*)]
+        \item $A \wedge B$ \enquote{$A$ und $B$}
+
+          $A \wedge B$ ist wahr, wenn beide Aussagen $A,B$ wahr sind, sonst ist sie
+          falsch.
+
+          \begin{center}
+            \begin{tabular}{ c c c }
+              $A$ & $B$ & $A \wedge B$ \\ \hline
+              f & f & f \\
+              f & w & f \\
+              w & f & f \\
+              w & w & w \\
+              \hline
+            \end{tabular}
+          \end{center}
+        \item $A \vee B$ \enquote{$A$ oder $B$}
+        \item $\neg A$ \enquote{nicht $A$}
+        \item $A \implies B$ \enquote{$A$ impliziert $B$}
+          \begin{center}
+            \begin{tabular}{ c c c }
+              $A$ & $B$ & $A \implies B$ \\ \hline
+              f & f & w \\
+              f & w & w \\
+              w & f & f \\
+              w & w & w \\
+              \hline
+            \end{tabular}
+          \end{center}
+
+          Man sagt, die Aussage $A$ ist hinreichend für $B$ und die Aussage $B$
+          ist notwendig für $A$.
+        \item $A \iff B$ \enquote{$A$ ist äquivalent zu $B$}
+          \begin{center}
+            \begin{tabular}{ c c c }
+              $A$ & $B$ & $A \iff B$ \\ \hline
+              f & f & w \\
+              f & w & f \\
+              w & f & f \\
+              w & w & w \\
+              \hline
+            \end{tabular}
+          \end{center}
+
+      \end{enumerate}
+
+      \subsubsection{Beispiel}
+
+    \subsubsection{Satz (De Morgan)}
+      \begin{enumerate}[label=(\roman*)]
+        \item $\neg (A \wedge B) \iff (\neg A) \vee (\neg B)$
+        \item $\neg (A \vee B) \iff (\neg A) \wedge (\neg B)$
+      \end{enumerate}
+
+    \subsubsection{Lemma (Hilfssatz)}
+      \begin{enumerate}[label=(\roman*)]
+        \item $\neg (\neg A) \iff A$
+        \item $A \vee B \iff B \vee A$
+
+          $A \wedge B \iff B \wedge A$
+        \item $A \vee (B \vee C) \iff (A \vee B) \vee C$
+
+          $A \wedge (B \wedge C) \iff (A \wedge B) \wedge C$
+        \item $(A \iff B) \iff (A \implies B) \wedge (B \implies A)$
+      \end{enumerate}
+
+    \subsubsection{Satz (Kontraposition)}
+      $\left( A \implies B \right) \iff \left( \neg B \implies \neg A \right)$
+
+  \subsection{Naive Mengenlehre}
+    \subsubsection{Definition (Cantor 1845-1918)}
+      Eine Menge ist eine Zusammenfassung von wohlunterscheidbaren Objekten
+      unserer Anschauung oder unseres Denkens zu einem Ganzen.
+
+    \subsubsection{Bemerkung}
+      \begin{enumerate}[label=(\roman*)]
+        \item Naiver Mengenbegriff
+        \item \enquote{Russelsche Antinomie} Naiver Mengenbegriff führt zu Widersprüchen!
+        \item Bei der Bildung von \enquote{Mengen aller Mengen} muss man vorsichtig sein!
+      \end{enumerate}
+
+\section{Reelle Zahlen}
+  \subsection{Der Körper der reellen Zahlen}
+    \subsubsection{Definition}
+      Ein Körper ist eine Menge $K$ mit zwei Verknüpfungen $+, \cdot$, die aus
+      zwei Elementen $a,b \in K$ ein neues Element
+      $(a+b) \in K, (a \cdot b) \in K$ zuordnen und dabei die folgenden
+      Rechenregeln erfüllen.
+
+      \begin{enumerate}[label=(A\arabic*)]
+        \item Assoziativität von $+$
+
+          $\forall a,b,c \in K: (a+b)+c = a+(b+c)$ kurz $a+b+c$
+        \item Kommutativität
+
+          $\forall a,b \in K: a+b=b+a$
+
+        \item Es gibt ein Element $0 \in K, \forall a \in K: a+0 = 0+a = a$
+      \end{enumerate}
+      //Todo
+
+\section{Beweismethoden}
+  \subsection{Direkter Beweis}
+    Wir wollen $A \implies B$ zeigen:\\
+    Man nimmt an, dass $A$ wahr ist, und seien $A_n,\cdots,A_m$
+    weitere Aussagen. Dann:\\
+    $A \implies A_1 \implies A_2 \implies \dots \implies A_n \implies B$
+
+    \subsubsection{Beispiel}
+      Sei $n \in \mathbb{N}$ gerade. Dann ist auch $n^2$ gerade.
+
+      \begin{proof} \mbox{} \\
+        $A = ``n \text{ ist gerade}"$ \\
+        $B = ``n^2 \text{ ist gerade}"$ \\
+        $\text{Wir wollen } A \implies B \text{ zeigen.}$
+        \begin{align*}
+          A \implies n=2k, k \in \mathbb{N}
+          \implies n^2=(2k)^2 = 4k^2 =
+          2\cdot\underbrace{(2k^2)}_{\in \mathbb{N}}
+        \end{align*}
+        $n^2 \text{ ist gerade.}$
+      \end{proof}
+
+    \subsubsection{Beispiel}
+      Wir betrachten ein $8x8$ Schachfeld, bei dem zwei gegenüberliegende Felder
+      entfernt wurden. Wir legen Dominosteine auf das Feld, die jeweils zwei
+      Felder überdecken. \\
+      Behauptung: Das ganze Feld kann nicht komplett bedeckt werden.
+
+      \begin{enumerate}[label=\arabic*.]
+        \item Lösungsmöglichkeit: Probiere alle Möglichkeiten durch.\\
+          Beweis per Fallunterscheidung
+        \item Lösungsmöglichkeit: Direkter Beweis:
+          \begin{proof} \mbox{}
+            \begin{enumerate}[label=(\roman*)]
+              \item Das Feld hat 64 Felder, davon sind 32 weiß und 32 schwarz.
+                Nach dem Entfernen sind noch 62 Felder übrig.
+              \item Die entfernten Felder haben beide die Farbe schwarz. Also
+                gibt es noch 32 weiße und 30 schwarze Felder.
+              \item Ein Dominostein bedeckt immer 2 benachbarte Felder. Diese
+                haben unterschiedliche Farben.
+              \item Auf das neue Feld passen maximal 31 Steine.
+              \item Nach 30 Steinen bleiben 2 Felder übrig. Nach (iii)  bleiben
+                noch zwei weiße Felder übrig. Der letzte Stein müsste dann zwei
+                weiße Felder bedecken. Nach (iii) ist das unmöglich.
+            \end{enumerate}
+            Also gibt es keine solche Bedeckung.
+          \end{proof}
+      \end{enumerate}
+
+  \subsection{Indirekter Beweis}
+    Wir wollen $A \implies B$ zeigen. Nach dem Prinzip der Kontraposition ist
+    dies äquivalent zu $\neg A \implies \neg B$
+
+    \subsubsection{Beispiel}
+      Sei $n \in \mathbb{N}$. Wenn $5$ die Zahl $n$ nicht teilt, dann teilt auch
+      $10$ die Zahl $n$ nicht.
+      \begin{proof} \mbox{} \\
+        $A = ``5$ teilt $n$ nicht" \\
+        $B = ``10$ teilt $n$ nicht"
+        \begin{align*}
+          A &\implies B \\
+          \neg B &\implies \neg A
+        \end{align*}
+        $\neg A = `` 5$ teilt $n$" \\
+        $\neg B = `` 10$ teilt $n$" \\
+        Wir nehmen an, dass $\neg B$ wahr ist. Jetzt müssen wir $\neg A$ zeigen. \\
+        Da $\neg B$ ist wahr, gilt, folgt $\exists k \in \mathbb{N}$
+        mit $n=10k = 5 \cdot \underbrace{(2k)}_{\in \mathbb{N}}$ \\
+        $\implies ``5 \text{ teilt } n$" $ = \neg A$
+      \end{proof}
+
+  \subsection{Beweis per Widerspruch}
+    Wir wollen $A \implies B$ zeigen. Wir nehmen an, dass $A$ gilt, aber dass auch
+    $\neg B$ gilt und führen das zu einem Widerspruch. Also muss $\neg B$ falsch
+    sein, also ist $B$ wahr.
+
+    \subsubsection{Satz (Euklid ~200 v.Chr.)}
+      Es gibt unendlich viele Primzahlen.
+
+\end{document}
