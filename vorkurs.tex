@@ -250,5 +250,33 @@
         \item April 2014: Abstand $246$
       \end{enumerate}
 
+  \subsection{Vollständige Induktion}
+    Dies ist eine Methode um eine Aussage über alle natürlichen Zahlen zu beweisen.
+
+    \subsubsection{Satz}
+      Sei für $n \in \mathbb{N} A(n)$ eine Aussage.
+      \begin{enumerate}[label=(\roman*)]
+        \item Es gelte $A(1)$ ist wahr. (Induktionsanfang)
+        \item Es gelte $``A(n) \implies A(n+1)"$ (Induktionsschritt) für
+          $n \in \mathbb{N}$ fest, aber beliebig.
+      \end{enumerate}
+
+      Dann gilt $A(n)$ für alle $n \in \mathbb{N}$
+
+    \subsubsection{Beispiel \enquote{Kleiner Gauß}}
+      Für alle $n \in \mathbb{N}$ gilt $\displaystyle\sum_{k=1}^{n} k = \frac{n(n+1)}{2}$
+      \begin{proof} \mbox{} \\
+        IA: Sei $n = 1$ \\
+        $\displaystyle\sum_{k=1}^{1} k = 1 = \frac{1 \cdot (1+1)}{2} \implies A(1) \text{ ist wahr.}$ \\
+        IS: Sei $n \in \mathbb{N}$ beliebig, aber fest. \\
+        Angenommen $A(n)$ ist wahr (Induktionshypothese \enquote{IH}) \\
+        Wir zeigen, dass unter dieser Annahme auch $A(n+1)$ wahr ist.
+        \begin{align*}
+          \displaystyle\sum_{k=1}^{n+1} k = \displaystyle\sum_{k=1}^{n} k + n+1
+          &= \frac{n \cdot (n+1)}{2} + n+1 \\
+          &= \frac{n \cdot (n+1)}{2} + \frac{2 \cdot (n+1)}{2} \\
+          &=\frac{(n+1) \cdot (n+2)}{2}
+        \end{align*}
+      \end{proof}
 
 \end{document}
