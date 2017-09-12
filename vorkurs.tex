@@ -279,4 +279,103 @@
         \end{align*}
       \end{proof}
 
+    \subsubsection{Zusammenfassung}
+      \begin{itemize}
+        \item [IA:] Die Aussage gilt für $n=1$
+        \item [IH:] Wir nehmen an, dass die Aussage für ein festes, aber
+          beliebiges $n \in \mathbb{N}$ gilt
+        \item [IS:] Zeige unter Verwendung von IH dass $A$ für $n+1$ gilt
+      \end{itemize}
+
+    \subsubsection{Beispiel}
+      //Todo
+
+    \subsubsection{Beispiel}
+      //Todo
+
+    \subsubsection{Beispiel Bernoulli-Ungelichung}
+      //Todo
+
+    \subsubsection{Bemerkung}
+      Der Induktionsanfang muss nocht unbedingt bei $n=1$ beginnen.
+
+    \subsubsection{Beispiel}
+      //Todo
+
+\section{Funktionen}
+  \subsection{}
+    \subsubsection{Definition}
+      Seien $X,Y$ Mengen. \\
+      Eine Funktion $f$ ist eine Vorschrift, die jedem $x \in X$ ein eindeutiges
+      $y \in Y$ zuordnet. Das $x \in X$ zugeordnete $y \in Y$ wird mit
+      $y=f(x)$ bezeichnet. \\
+      Notation:
+      \begin{align*}
+        f: X &\to Y \\
+        X \ni x &\mapsto f(x)
+      \end{align*}
+      Die Menge $X$ heißt Definitionsmenge/-bereich, die Menge $Y$ heißt
+      Zielmenge. Das $x \in X$ zugeordnete $y \in Y, y=f(x)$ heißt Bild von $x$
+      unter $f$. Das $x \in X$ mit $f(x)=y$ heißt ein Urbild von $y$ unter $f$.
+
+      I'm not going to draw such a fancy diagram like on the blackboard using
+      \LaTeX btw, i'm not THAT crazy!
+
+    \subsubsection{Beispiele}
+      \begin{enumerate}[label=(\roman*)]
+        \item $f: \mathbb{R} \to \mathbb{R}, x \mapsto 2x+1$ \\
+          $f(x)=2x+1$
+        \item $f: \mathbb{R} \to \mathbb{R}, x \mapsto x^2$ \\
+          $f(x)=x^2$
+        \item $f: \mathbb{R} \to [0,\infty), x \mapsto x^2$ \\
+          Hier hat jedes $y \in Y=[0,\infty)$ zwei Urbilder, nämlich
+          $x_1 = \sqrt{y}, x_2 = -\sqrt{y}$
+        \item $f: [0,\infty) \to [0,\infty), x \mapsto x^2$, dann hat jedes
+          $y \in [0,\infty)$ genau ein Urbild $x \in [0,\infty)$
+      \end{enumerate}
+
+    \subsubsection{Definiton}
+      Sei $f: X \to Y$ eine Funktion und $X_1 < X, Y_1 < Y$, dann heißt
+      \begin{enumerate}[label=(\roman*)]
+        \item $f(X_1) := \{ y \in Y, y=f(x),x \in X_1\}$ das Bild von $X_1$ unter $f$
+        \item $f^{-1}(Y_1) := \{ x \in X, f(x) \in Y_1 \}$ das Urbild von $Y_1$
+        \item die Funktion $f$ \emph{surjektiv}, falls $f(X) = Y$, d.h. das Bild
+          von $X$ ist die gesamte Menge $Y$ \\
+          $f$ ist surjektiv $\iff \forall y \in Y, \exists x \in X: f(x)=y$
+        \item die Funktion $f$ \emph{injektiv}, wenn \\
+          $x_1, x_2 \in X, x_1 \neq x_2 \implies f(x_1) \neq f(x_2)$ \\
+          $\iff f(x_1) = f(x_2) \implies x_1 = x_2$ \\
+          $\iff$ Falls $y \in Y$ ein Urbild $x \in X$ hat, fann ist dies eindeutig
+          bestimmt.
+        \item die Funktion $f$ \emph{bijektiv}, falls sie sowohl injektiv als
+          auch surjektiv ist, d.h. falls jedes Element $y \in Y$ genau ein Urbild
+          $x \in X$ besitzt.
+      \end{enumerate}
+
+    \subsubsection{Beispiel}
+      \begin{enumerate}[label=(\roman*)]
+        \item $f: \mathbb{N} \to \mathbb{N}, x \mapsto 2x$
+          \begin{align*}
+            X_1&=\{2,3\} & Y_1&=\{8,14,100\} \\
+            f(X_1) &= \{4,6\}, & f^{-1}(Y_1) &= \{4,7,50\}
+          \end{align*}
+        \item $f: \mathbb{R} \to \mathbb{R}, x \mapsto 2x+1$ ist bijektiv: \\
+          \begin{enumerate}[label=\alph*)]
+            \item $f$ ist surjektiv. Sei $y \in \mathbb{R}$ beliebig. \\
+              Ziel: finde $x \in \mathbb{R}, f(x)&=y$ \\
+              \begin{align*}
+                f(x)&=y \\
+                \iff 2x+1&=y \\
+                \iff x&=\frac{y-1}{2}
+              \end{align*}
+              $f(x)=2(\frac{y-1}{2})+1&=y$
+            \item $f$ ist injektiv. Seien $x_1, x_2 \in X$ mit
+              \begin{align*}
+                f(x_1)=f(x_2) &\iff 2x_1+1 = 2x_2+1 \\
+                &\iff x_1=x_2 \\
+                &\implies f \text{ ist injektiv}
+              \end{align*}
+          \end{enumerate}
+      \end{enumerate}
+
 \end{document}
